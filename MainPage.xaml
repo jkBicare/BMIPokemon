@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
+             x:Class="BMIPokemon.MainPage"
+             BackgroundImageSource="pokemonbg.png">
+
+    <!--Whole Content-->
+    <Grid
+        Margin="0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--Logo Title-->
+        <Grid>
+            <Image
+                Source="pokemonlogo.png"
+                Margin="0,-60,0,0"
+                HeightRequest="80"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"/>
+        </Grid>
+        
+        <!--Height-->
+        <Grid
+            Grid.Row="1"
+            Margin="0,-110,0,0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!--Height & Value-->
+            <Grid
+                Grid.ColumnSpan="2">
+
+                <Image
+                    Source="pkheightxt.png"
+                    Margin="30,0,0,0"
+                    HeightRequest="20"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"/>
+
+                <Label
+                    Grid.Column="1"
+                    Margin="0,0,40,0"
+                    Text="{Binding BMI.Height, StringFormat='{0:0}'}"
+                    TextColor="White"
+                    FontFamily="LuckiestGuy"
+                    FontSize="24"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"/>
+
+            </Grid>
+
+            <!--Height Linear Gauge-->
+            <Grid
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Margin="0,-160,0,0">
+
+                <Image
+                    Source="rectangleboard.png"
+                    WidthRequest="320"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"/>
+
+                <gauge:SfLinearGauge
+                    Margin="0"
+                    Interval="60"
+                    Minimum="25"
+                    Maximum="250"
+                    BackgroundColor="Transparent"
+                    WidthRequest="300"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+                    <!--Bar Pointer-->
+                    <gauge:SfLinearGauge.BarPointers>
+                        <gauge:BarPointer Value="{Binding BMI.Height}" Fill="Black"/>
+                    </gauge:SfLinearGauge.BarPointers>
+
+                    <!--Scale Label-->
+                    <gauge:SfLinearGauge.LabelStyle>
+                        <gauge:GaugeLabelStyle
+                            FontAttributes="Bold"
+                            FontSize="12"
+                            TextColor="AliceBlue"/>
+                    </gauge:SfLinearGauge.LabelStyle>
+
+                    <!--Marker Pointer-->
+                    <gauge:SfLinearGauge.MarkerPointers>
+
+                        <!--Scale Pointer-->
+                        <gauge:LinearContentPointer
+                            IsInteractive="True"
+                            x:Name="HeightPointer"
+                            Value="{Binding BMI.Height}"
+                            Position="Cross">
+
+                            <!--Scale Pointer-->
+                            <gauge:LinearContentPointer.Content>
+
+                                <Grid
+                                    HeightRequest="25"
+                                    WidthRequest="50">
+
+                                    <Image
+                                        Source="pokemonball.png"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"
+                                        HeightRequest="40"/>
+
+                                </Grid>
+
+                            </gauge:LinearContentPointer.Content>
+
+                        </gauge:LinearContentPointer>
+
+                    </gauge:SfLinearGauge.MarkerPointers>
+
+                </gauge:SfLinearGauge>
+
+            </Grid>
+
+        </Grid>
+
+        <!--Weight-->
+        <Grid
+            Grid.Row="2"
+            Margin="0,-170,0,0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!--Weight & Value-->
+            <Grid
+                Grid.ColumnSpan="2">
+
+                <Image
+                    Source="pkweightxt.png"
+                    Margin="30,0,0,0"
+                    HeightRequest="20"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"/>
+
+                <Label
+                    Grid.Column="1"
+                    Margin="0,0,40,0"
+                    Text="{Binding BMI.Weight, StringFormat='{0:0}'}"
+                    TextColor="White"
+                    FontFamily="LuckiestGuy"
+                    FontSize="24"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"/>
+
+            </Grid>
+
+            <!--Weight Linear Gauge-->
+            <Grid
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Margin="0,-220,0,0">
+
+                <Image
+                    Source="rectangleboard.png"
+                    WidthRequest="320"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"/>
+
+                <gauge:SfLinearGauge
+                    Margin="0"
+                    Interval="50"
+                    Minimum="2"
+                    Maximum="200"
+                    BackgroundColor="Transparent"
+                    WidthRequest="300"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+                    <!--Bar Pointer-->
+                    <gauge:SfLinearGauge.BarPointers>
+                        <gauge:BarPointer Value="{Binding BMI.Weight}" Fill="Black"/>
+                    </gauge:SfLinearGauge.BarPointers>
+
+                    <!--Scale Label-->
+                    <gauge:SfLinearGauge.LabelStyle>
+                        <gauge:GaugeLabelStyle
+                            FontAttributes="Bold"
+                            FontSize="12"
+                            TextColor="AliceBlue"/>
+                    </gauge:SfLinearGauge.LabelStyle>
+
+                    <!--Marker Pointer-->
+                    <gauge:SfLinearGauge.MarkerPointers>
+
+                        <!--Scale Pointer-->
+                        <gauge:LinearContentPointer
+                            IsInteractive="True"
+                            x:Name="WeightPointer"
+                            Value="{Binding BMI.Weight}"
+                            Position="Cross">
+
+                            <!--Scale Pointer-->
+                            <gauge:LinearContentPointer.Content>
+
+                                <Grid
+                                    HeightRequest="25"
+                                    WidthRequest="50">
+
+                                    <Image
+                                        Source="pokemonball.png"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"
+                                        HeightRequest="40"/>
+
+                                </Grid>
+
+                            </gauge:LinearContentPointer.Content>
+
+                        </gauge:LinearContentPointer>
+
+                    </gauge:SfLinearGauge.MarkerPointers>
+
+                </gauge:SfLinearGauge>
+
+            </Grid>
+
+        </Grid>
+
+        <!--Result-->
+        <Grid
+            Grid.Row="3">
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Image
+                Grid.Row="0"
+                Margin="0,-140,0,0"
+                Source="resultxt.png"
+                VerticalOptions="Start"
+                HorizontalOptions="Center"/>
+
+            <Grid
+                Grid.Row="1"
+                Margin="0,-220,0,0">
+
+                <Image
+                    Source="squarebg"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    HeightRequest="250"/>
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Label
+                        Margin="0,50,0,0"
+                        Text="{Binding BMI.ResultText}"
+                        TextColor="Black"
+                        FontSize="26"
+                        FontFamily="LuckiestGuy"
+                        VerticalOptions="Start"
+                        HorizontalOptions="Center"/>
+
+                    <Grid
+                        Grid.Row="1"
+                        Margin="0,-80,0,0">
+
+                        <Label
+                            Margin="0,80,0,0"
+                            Text="{Binding BMI.Result, StringFormat='{0:0}'}"
+                            FontFamily="LuckiestGuy"
+                            FontSize="30"
+                            TextColor="White"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"/>
+
+                        <gauge:SfRadialGauge
+                            Margin="0,-30,0,0"
+                            Grid.Row="1"
+                            
+                            HeightRequest="220"
+                            WidthRequest="220"
+                            Background="Transparent">
+
+                            <gauge:SfRadialGauge.Axes>
+
+                                <gauge:RadialAxis
+                                    Minimum="0"
+                                    Maximum="50"
+                                    ShowAxisLine="False"
+                                    ShowLabels="False"
+                                    ShowTicks="False">
+
+                                    <!--Gauge Ranges-->
+                                    <gauge:RadialAxis.Ranges>
+
+                                        <!-- Severe Thinness -->
+                                        <gauge:RadialRange
+                                            StartValue="0"
+                                            EndValue="16"
+                                            StartWidth="0.65"
+                                            EndWidth="0.65"
+                                            Fill="#FFA500"
+                                            WidthUnit="Factor"/>
+
+                                        <!-- Moderate Thinness -->
+                                        <gauge:RadialRange
+                                            StartValue="16"
+                                            EndValue="17"
+                                            StartWidth="0.65"
+                                            EndWidth="0.65"
+                                            Fill="#FF8C00"
+                                            WidthUnit="Factor"/>
+
+                                        <!-- Mild Thinness -->
+                                        <gauge:RadialRange
+                                            StartValue="17"
+                                            EndValue="18.5"
+                                            StartWidth="0.65"
+                                            EndWidth="0.65"
+                                            Fill="#FF7F00"
+                                            WidthUnit="Factor"/>
+
+                                        <!-- Normal -->
+                                        <gauge:RadialRange
+                                            StartValue="18.5"
+                                            EndValue="25"
+                                            StartWidth="0.65"
+                                            EndWidth="0.65"
+                                            Fill="#FF4500"
+                                            WidthUnit="Factor"/>
+
+                                        <!-- Overweight -->
+                                        <gauge:RadialRange
+                                            StartValue="25"
+                                            EndValue="30"
+                                            StartWidth="0.65"
+                                            EndWidth="0.65"
+                                            Fill="#F20000"
+                                            WidthUnit="Factor"/>
+
+                                        <!-- Obese Class I -->
+                                        <gauge:RadialRange
+                                            StartValue="30"
+                                            EndValue="35"
+                                            StartWidth="0.65"
+                                            EndWidth="0.65"
+                                            Fill="#DB0000"
+                                            WidthUnit="Factor"/>
+
+                                        <!-- Obese Class II -->
+                                        <gauge:RadialRange
+                                            StartValue="35"
+                                            EndValue="40"
+                                            StartWidth="0.65"
+                                            EndWidth="0.65"
+                                            Fill="#B22222"
+                                            WidthUnit="Factor"/>
+
+                                        <!-- Obese Class III -->
+                                        <gauge:RadialRange
+                                            StartValue="40"
+                                            EndValue="50"
+                                            StartWidth="0.65"
+                                            EndWidth="0.65"
+                                            Fill="#800000"
+                                            WidthUnit="Factor"/>
+
+                                        <!-- Background range -->
+                                        <gauge:RadialRange
+                                            StartValue="0"
+                                            EndValue="50"
+                                            StartWidth="1"
+                                            EndWidth="1"
+                                            Fill="Transparent"
+                                            OffsetUnit="Factor"
+                                            RangeOffset="0.63"
+                                            WidthUnit="Factor"/>
+
+                                    </gauge:RadialAxis.Ranges>
+
+                                    <!--Gauge Pointer-->
+                                    <gauge:RadialAxis.Pointers>
+
+                                        <gauge:NeedlePointer
+                                            x:Name="pointer"
+                                            KnobRadius="15"
+                                            KnobSizeUnit="Pixel"
+                                            NeedleEndWidth="15"
+                                            NeedleLength="0.6"
+                                            NeedleStartWidth="2"
+                                            Value="{Binding BMI.Result}"
+                                            KnobFill="White"
+                                            NeedleFill="White"/>
+
+                                    </gauge:RadialAxis.Pointers>
+
+                                </gauge:RadialAxis>
+                                
+                            </gauge:SfRadialGauge.Axes>
+
+                        </gauge:SfRadialGauge>
+
+                    </Grid>
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+        
+
+</ContentPage>
